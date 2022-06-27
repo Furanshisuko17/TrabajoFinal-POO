@@ -11,7 +11,6 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 import utp.trabajofinal.sqlhandler.ConnectionInfo;
 import utp.trabajofinal.sqlhandler.MySQLHandler;
-import utp.trabajofinal.ui.theme.FlatLafTheme;
 
 public class MainInterface extends javax.swing.JFrame {
     
@@ -304,6 +303,7 @@ public class MainInterface extends javax.swing.JFrame {
 
         openMunicipalidadButton.setText("Municipalidad");
         openMunicipalidadButton.setFocusable(false);
+        openMunicipalidadButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
         openMunicipalidadButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         openMunicipalidadButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         openMunicipalidadButton.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +424,7 @@ public class MainInterface extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(MainWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(MainWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
         );
 
         pack();
@@ -434,7 +434,7 @@ public class MainInterface extends javax.swing.JFrame {
         if(e.getStateChange() == ItemEvent.SELECTED){
             FlatAnimatedLafChange.showSnapshot();
             try {
-                UIManager.setLookAndFeel("utp.trabajofinal.ui.theme.FlatLafTheme");
+                UIManager.setLookAndFeel("com.formdev.flatlaf.FlatDarkLaf");
             } catch (Exception ex) {
                 MessageHandler.exceptionMessage(ex);
             }
@@ -592,7 +592,7 @@ public class MainInterface extends javax.swing.JFrame {
     public static void main(String args[]) {
         //FlatDarkLaf look and feel    
         
-        FlatLafTheme.setup();
+        com.formdev.flatlaf.FlatDarkLaf.setup();
         FlatInspector.install( "ctrl shift alt X" ); //has to be removed
         
         java.awt.EventQueue.invokeLater(new Runnable() {
