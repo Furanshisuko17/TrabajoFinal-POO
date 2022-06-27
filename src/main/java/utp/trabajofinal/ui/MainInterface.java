@@ -11,7 +11,7 @@ import javax.swing.event.InternalFrameEvent;
 import javax.swing.event.InternalFrameListener;
 import utp.trabajofinal.sqlhandler.ConnectionInfo;
 import utp.trabajofinal.sqlhandler.MySQLHandler;
-import utp.trabajofinal.theme.FlatLafTheme;
+import utp.trabajofinal.ui.theme.FlatLafTheme;
 
 public class MainInterface extends javax.swing.JFrame {
     
@@ -434,7 +434,7 @@ public class MainInterface extends javax.swing.JFrame {
         if(e.getStateChange() == ItemEvent.SELECTED){
             FlatAnimatedLafChange.showSnapshot();
             try {
-                UIManager.setLookAndFeel("utp.trabajofinal.theme.FlatLafTheme");
+                UIManager.setLookAndFeel("utp.trabajofinal.ui.theme.FlatLafTheme");
             } catch (Exception ex) {
                 MessageHandler.exceptionMessage(ex);
             }

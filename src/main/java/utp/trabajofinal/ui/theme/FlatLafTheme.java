@@ -1,4 +1,4 @@
-package utp.trabajofinal.theme;
+package utp.trabajofinal.ui.theme;
 
 import com.formdev.flatlaf.FlatDarkLaf;
 
