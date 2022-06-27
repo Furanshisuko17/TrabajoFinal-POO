@@ -1,18 +1,18 @@
 package utp.trabajofinal.ui;
 
-import utp.trabajofinal.control.MunicipalidadControl;
-import utp.trabajofinal.entities.Municipalidad;
+import utp.trabajofinal.control.CiudadanoControl;
+import utp.trabajofinal.entities.Ciudadano;
 
-public class MunicipalidadInterface extends javax.swing.JInternalFrame {
+public class CiudadanoInterface extends javax.swing.JInternalFrame {
 
-    private final MunicipalidadControl control;
+    private final CiudadanoControl control;
     private String action;
-    private Municipalidad muni;
+    private Ciudadano muni;
     private String resp;
     
-    public MunicipalidadInterface() {
+    public CiudadanoInterface() {
         initComponents();
-        this.control = new MunicipalidadControl();
+        this.control = new CiudadanoControl();
         this.listar("");
         this.action = "guardar";
         

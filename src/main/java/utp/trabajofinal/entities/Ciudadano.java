@@ -1,8 +1,8 @@
 package utp.trabajofinal.entities;
 
-public class Municipalidad {
+public class Ciudadano {
 
-    private String IDempleado;
+    private String IDciudadano;
     private String nombre;
     private String apellido;
     private int edad;
@@ -11,11 +11,11 @@ public class Municipalidad {
     private int IDcat;
     private int IDmuni;
 
-    public Municipalidad() {
+    public Ciudadano() {
     }
 
-    public Municipalidad(String IDempleado, String nombre, String apellido, int edad, int DNI, int zona, int IDcat, int IDmuni) {
-        this.IDempleado = IDempleado;
+    public Ciudadano(String IDciudadano, String nombre, String apellido, int edad, int DNI, int zona, int IDcat, int IDmuni) {
+        this.IDciudadano = IDciudadano;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
@@ -25,12 +25,12 @@ public class Municipalidad {
         this.IDmuni = IDmuni;
     }
     
-    public String getIDempleado() {
-        return IDempleado;
+    public String getIDciudadano() {
+        return IDciudadano;
     }
 
-    public void setIDempleado(String IDempleado) {
-        this.IDempleado = IDempleado;
+    public void setIDciudadano(String IDciudadano) {
+        this.IDciudadano = IDciudadano;
     }
 
     public String getNombre() {

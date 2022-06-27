@@ -555,7 +555,7 @@ public class MainInterface extends javax.swing.JFrame {
     private void openMunicipalidadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMunicipalidadButtonActionPerformed
         
         if(isConnectedToDatabase){
-                MunicipalidadInterface muni = new MunicipalidadInterface();
+                CiudadanoInterface muni = new CiudadanoInterface();
                 muni.addInternalFrameListener(new InternalFrameListener() {
                     @Override
                     public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {

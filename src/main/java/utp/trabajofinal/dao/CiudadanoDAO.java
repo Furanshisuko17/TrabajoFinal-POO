@@ -6,35 +6,35 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import utp.trabajofinal.crudInterfaces.SimpleCrudInterface;
-import utp.trabajofinal.entities.Municipalidad;
+import utp.trabajofinal.entities.Ciudadano;
 import utp.trabajofinal.ui.MainInterface;
 import utp.trabajofinal.ui.MessageHandler;
 import utp.trabajofinal.sqlhandler.ConnectionInfo;
 import utp.trabajofinal.sqlhandler.MySQLHandler;
 
 
-public class MunicipalidadDAO implements SimpleCrudInterface<Municipalidad> {
+public class CiudadanoDAO implements SimpleCrudInterface<Ciudadano> {
     
     private final ConnectionInfo connectionInfo;
     private final MySQLHandler con;
     private PreparedStatement ps;
     private ResultSet rs;
     
-    public MunicipalidadDAO() {
+    public CiudadanoDAO() {
         this.connectionInfo = MainInterface.connectionInfo;
         this.con = MySQLHandler.getInstance(connectionInfo.getIP(), connectionInfo.getPort(), 
                 connectionInfo.getDatabase(), connectionInfo.getUser(), connectionInfo.getPassword());
     }
 
     @Override
-    public List<Municipalidad> listar(String text) {
-        List<Municipalidad> registros = new ArrayList();
+    public List<Ciudadano> listar(String text) {
+        List<Ciudadano> registros = new ArrayList();
         try{
-            ps = con.conectar().prepareStatement("SELECT * FROM municipalidad WHERE IDempleado LIKE ?");
+            ps = con.conectar().prepareStatement("SELECT * FROM ciudadano WHERE IDciudadano LIKE ?");
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
             while(rs.next()){
-                registros.add(new Municipalidad(rs.getString(1), 
+                registros.add(new Ciudadano(rs.getString(1), 
                                                 rs.getString(2),
                                                 rs.getString(3),
                                                 rs.getInt(4),
@@ -56,17 +56,17 @@ public class MunicipalidadDAO implements SimpleCrudInterface<Municipalidad> {
     }
 
     @Override
-    public boolean insertar(Municipalidad obj) {
+    public boolean insertar(Ciudadano obj) {
         return true;
     }
 
     @Override
-    public boolean actualizar(Municipalidad obj) {
+    public boolean actualizar(Ciudadano obj) {
         return true;
     }
 
     @Override
-    public boolean eliminar(Municipalidad obj) {
+    public boolean eliminar(Ciudadano obj) {
         return true;
     }
     

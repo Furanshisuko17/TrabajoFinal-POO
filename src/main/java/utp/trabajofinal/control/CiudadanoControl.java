@@ -3,27 +3,27 @@ package utp.trabajofinal.control;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
-import utp.trabajofinal.dao.MunicipalidadDAO;
-import utp.trabajofinal.entities.Municipalidad;
+import utp.trabajofinal.dao.CiudadanoDAO;
+import utp.trabajofinal.entities.Ciudadano;
 
-public class MunicipalidadControl {
-    private final MunicipalidadDAO data;
-    private Municipalidad obj;
+public class CiudadanoControl {
+    private final CiudadanoDAO data;
+    private Ciudadano obj;
     private DefaultTableModel dtm;
     
-    public MunicipalidadControl(){
-        this.data = new MunicipalidadDAO();
-        this.obj = new Municipalidad();
+    public CiudadanoControl(){
+        this.data = new CiudadanoDAO();
+        this.obj = new Ciudadano();
     }
     
     public DefaultTableModel listar(String text) {
-        List<Municipalidad> lista = new ArrayList();
+        List<Ciudadano> lista = new ArrayList();
         lista.addAll(data.listar(text));
-        String[] columnas = {"IDempleado", "Nombre", "Apellido", "Edad", "DNI", "zona", "IDcat", "IDmuni"};
+        String[] columnas = {"IDciudadano", "Nombre", "Apellido", "Edad", "DNI", "zona", "IDcat", "IDmuni"};
         this.dtm = new DefaultTableModel(null, columnas);
         String[] register = new String[8];
-        for (Municipalidad item : lista){
-            register[0] = item.getIDempleado();
+        for (Ciudadano item : lista){
+            register[0] = item.getIDciudadano();
             register[1] = item.getNombre();
             register[2] = item.getApellido();
             register[3] = Integer.toString(item.getEdad());
