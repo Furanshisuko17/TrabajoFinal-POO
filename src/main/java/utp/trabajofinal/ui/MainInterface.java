@@ -5,7 +5,6 @@ import com.formdev.flatlaf.extras.FlatInspector; // has to be removed
 import com.formdev.flatlaf.extras.FlatSVGIcon;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.event.InternalFrameEvent;

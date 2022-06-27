@@ -39,6 +39,7 @@ public class MySQLHandler {
         }
         return this.cnx;
     }
+    
     public void desconectar() {
         try {
             this.cnx.close();
@@ -73,7 +74,6 @@ public class MySQLHandler {
     synchronized public static void clearInstance(){
         selfinstance = null;
     }
-
     
     @Override 
     public String toString() {
