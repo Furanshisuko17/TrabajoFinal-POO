@@ -39,6 +39,8 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
                                           rs.getString(2),
                                           rs.getString(3)));
             }
+            ps.close();
+            rs.close();
         }catch (SQLException e){
             MessageHandler.exceptionMessage(e);
         }finally {

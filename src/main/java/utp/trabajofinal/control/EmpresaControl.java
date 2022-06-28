@@ -23,7 +23,6 @@ public class EmpresaControl {
         String[] columnas = {"ID", "Nombre municipal", "Lugar"};
         this.dtm = new DefaultTableModel(null, columnas);
         String[] registro = new String[3];
-        String estado;
         
         for(Empresa item: lista){
             registro[0] = Integer.toString(item.getIDempresa());
