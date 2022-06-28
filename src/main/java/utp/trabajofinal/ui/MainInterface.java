@@ -64,7 +64,8 @@ public class MainInterface extends javax.swing.JFrame {
         About = new javax.swing.JDialog();
         ThemeButtonGroup = new javax.swing.ButtonGroup();
         ToolBar = new com.formdev.flatlaf.extras.components.FlatToolBar();
-        openMunicipalidadButton = new javax.swing.JButton();
+        openCiudadanoButton = new javax.swing.JButton();
+        openEmpresaButton = new javax.swing.JButton();
         MainWindow = new javax.swing.JPanel();
         mainDesktopPane = new javax.swing.JDesktopPane();
         MenuBar = new javax.swing.JMenuBar();
@@ -301,17 +302,28 @@ public class MainInterface extends javax.swing.JFrame {
 
         ToolBar.setRollover(true);
 
-        openMunicipalidadButton.setText("Municipalidad");
-        openMunicipalidadButton.setFocusable(false);
-        openMunicipalidadButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        openMunicipalidadButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        openMunicipalidadButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        openMunicipalidadButton.addActionListener(new java.awt.event.ActionListener() {
+        openCiudadanoButton.setText("Ciudadano");
+        openCiudadanoButton.setFocusable(false);
+        openCiudadanoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
+        openCiudadanoButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        openCiudadanoButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        openCiudadanoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openMunicipalidadButtonActionPerformed(evt);
+                openCiudadanoButtonActionPerformed(evt);
             }
         });
-        ToolBar.add(openMunicipalidadButton);
+        ToolBar.add(openCiudadanoButton);
+
+        openEmpresaButton.setText("Empresa");
+        openEmpresaButton.setFocusable(false);
+        openEmpresaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        openEmpresaButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        openEmpresaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openEmpresaButtonActionPerformed(evt);
+            }
+        });
+        ToolBar.add(openEmpresaButton);
 
         MainWindow.setLayout(new java.awt.BorderLayout());
 
@@ -551,14 +563,14 @@ public class MainInterface extends javax.swing.JFrame {
         About.setVisible(true);
     }//GEN-LAST:event_AcercaDeMenuActionPerformed
 
-    private void openMunicipalidadButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openMunicipalidadButtonActionPerformed
+    private void openCiudadanoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openCiudadanoButtonActionPerformed
         
         if(isConnectedToDatabase){
                 CiudadanoInterface muni = new CiudadanoInterface();
                 muni.addInternalFrameListener(new InternalFrameListener() {
                     @Override
                     public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-                        openMunicipalidadButton.setEnabled(true);
+                        openCiudadanoButton.setEnabled(true);
                     }
                     @Override
                     public void internalFrameOpened(InternalFrameEvent e) {}
@@ -575,14 +587,43 @@ public class MainInterface extends javax.swing.JFrame {
                 });
                 mainDesktopPane.add(muni);
                 muni.setVisible(true);
-                openMunicipalidadButton.setEnabled(false);
+                openCiudadanoButton.setEnabled(false);
                 
                 
         }else {
             MessageHandler.exceptionMessage("No estas conectado a una base de datos.");
         }
         
-    }//GEN-LAST:event_openMunicipalidadButtonActionPerformed
+    }//GEN-LAST:event_openCiudadanoButtonActionPerformed
+
+    private void openEmpresaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openEmpresaButtonActionPerformed
+        if(isConnectedToDatabase){
+                EmpresaInterface emp = new EmpresaInterface();
+                emp.addInternalFrameListener(new InternalFrameListener() {
+                    @Override
+                    public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                        openEmpresaButton.setEnabled(true);
+                    }
+                    @Override
+                    public void internalFrameOpened(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameClosed(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameIconified(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameDeiconified(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameActivated(InternalFrameEvent e) {}                        
+                    @Override
+                    public void internalFrameDeactivated(InternalFrameEvent e) {}
+                });
+                mainDesktopPane.add(emp);
+                emp.setVisible(true);
+                openEmpresaButton.setEnabled(false);            
+        }else {
+            MessageHandler.exceptionMessage("No estas conectado a una base de datos.");
+        }
+    }//GEN-LAST:event_openEmpresaButtonActionPerformed
 
     public static void defineUI(){
         UIManager.put("PasswordField.showRevealButton", true );
@@ -649,7 +690,8 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JTextField UsernameInput;
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.JDesktopPane mainDesktopPane;
-    private javax.swing.JButton openMunicipalidadButton;
+    private javax.swing.JButton openCiudadanoButton;
+    private javax.swing.JButton openEmpresaButton;
     // End of variables declaration//GEN-END:variables
     // </editor-fold>
 }

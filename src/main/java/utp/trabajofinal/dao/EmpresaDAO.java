@@ -31,7 +31,7 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
     public List<Empresa> listar(String text) {
         List<Empresa> registros = new ArrayList();
         try{
-            ps = con.conectar().prepareStatement("SELECT * FROM empresa WHERE IDempresa LIKE ?");
+            ps = con.conectar().prepareStatement("SELECT * FROM empresa WHERE municipalNombre LIKE ?");
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
             while(rs.next()){

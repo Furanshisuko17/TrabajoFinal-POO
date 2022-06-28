@@ -31,7 +31,7 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
         tablaMunicipalidad = new javax.swing.JTable();
 
         setClosable(true);
-        setTitle("Municipalidad");
+        setTitle("Ciudadano");
         setToolTipText("");
         setFrameIcon(null);
 

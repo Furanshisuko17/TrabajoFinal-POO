@@ -508,16 +508,27 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignBoxLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="openMunicipalidadButton">
+        <Component class="javax.swing.JButton" name="openCiudadanoButton">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Municipalidad"/>
+            <Property name="text" type="java.lang.String" value="Ciudadano"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalAlignment" type="int" value="10"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
             <Property name="verticalTextPosition" type="int" value="3"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openMunicipalidadButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openCiudadanoButtonActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="openEmpresaButton">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Empresa"/>
+            <Property name="focusable" type="boolean" value="false"/>
+            <Property name="horizontalTextPosition" type="int" value="0"/>
+            <Property name="verticalTextPosition" type="int" value="3"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openEmpresaButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
