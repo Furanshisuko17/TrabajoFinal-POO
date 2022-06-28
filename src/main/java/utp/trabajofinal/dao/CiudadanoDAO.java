@@ -35,13 +35,13 @@ public class CiudadanoDAO implements SimpleCrudInterface<Ciudadano> {
             rs = ps.executeQuery();
             while(rs.next()){
                 registros.add(new Ciudadano(rs.getString(1), 
-                                                rs.getString(2),
-                                                rs.getString(3),
-                                                rs.getInt(4),
-                                                rs.getInt(5),
-                                                rs.getInt(6),
-                                                rs.getInt(7),
-                                                rs.getInt(8)));
+                                            rs.getString(2),
+                                            rs.getString(3),
+                                            rs.getInt(4),
+                                            rs.getInt(5),
+                                            rs.getInt(6),
+                                            rs.getInt(7),
+                                            rs.getInt(8)));
             }
             ps.close();
             rs.close();
