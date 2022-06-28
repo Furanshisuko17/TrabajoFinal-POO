@@ -30,7 +30,7 @@ public class CiudadanoDAO implements SimpleCrudInterface<Ciudadano> {
     public List<Ciudadano> listar(String text) {
         List<Ciudadano> registros = new ArrayList();
         try{
-            ps = con.conectar().prepareStatement("SELECT * FROM ciudadano WHERE IDciudadano LIKE ?");
+            ps = con.conectar().prepareStatement("SELECT * FROM ciudadano WHERE IDciudadano LIKE ?;");
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
             while(rs.next()){

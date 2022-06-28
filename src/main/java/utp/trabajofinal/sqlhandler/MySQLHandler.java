@@ -27,6 +27,7 @@ public class MySQLHandler {
         this.PASSWORD = password;
         this.cnx = null;
     }
+
       
     public Connection conectar() {
         try {
