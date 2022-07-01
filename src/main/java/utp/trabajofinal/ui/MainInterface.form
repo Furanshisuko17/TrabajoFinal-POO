@@ -510,6 +510,9 @@
       <SubComponents>
         <Component class="javax.swing.JButton" name="openCiudadanoButton">
           <Properties>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new FlatSVGIcon(getClass().getResource(&quot;/icons/exit.svg&quot;))" type="code"/>
+            </Property>
             <Property name="text" type="java.lang.String" value="Ciudadano"/>
             <Property name="focusable" type="boolean" value="false"/>
             <Property name="horizontalAlignment" type="int" value="10"/>

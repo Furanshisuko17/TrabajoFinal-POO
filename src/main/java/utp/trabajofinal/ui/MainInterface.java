@@ -3,6 +3,8 @@ package utp.trabajofinal.ui;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.extras.FlatInspector; // has to be removed
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.formdev.flatlaf.extras.FlatUIDefaultsInspector; // has to be removed
+import java.awt.Color;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import javax.swing.JOptionPane;
@@ -302,6 +304,7 @@ public class MainInterface extends javax.swing.JFrame {
 
         ToolBar.setRollover(true);
 
+        openCiudadanoButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/exit.svg")));
         openCiudadanoButton.setText("Ciudadano");
         openCiudadanoButton.setFocusable(false);
         openCiudadanoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
@@ -450,6 +453,7 @@ public class MainInterface extends javax.swing.JFrame {
             } catch (Exception ex) {
                 MessageHandler.exceptionMessage(ex);
             }
+
             com.formdev.flatlaf.FlatLaf.updateUI();
             FlatAnimatedLafChange.hideSnapshotWithAnimation();
         }else if(e.getStateChange() == ItemEvent.DESELECTED){
@@ -507,6 +511,7 @@ public class MainInterface extends javax.swing.JFrame {
             port = Integer.parseInt(PortInput.getText());
         }catch (NumberFormatException e){
             MessageHandler.exceptionMessage("El valor introducidoe en el puerto no es un número!");
+            
             PortInput.putClientProperty("JComponent.outline", "error");
             return; //
         }
@@ -634,8 +639,10 @@ public class MainInterface extends javax.swing.JFrame {
         //FlatDarkLaf look and feel    
         
         com.formdev.flatlaf.FlatDarkLaf.setup();
+
+        FlatSVGIcon.ColorFilter.getInstance().add( Color.black, new Color(90, 90, 90), new Color(175, 177, 179));
         FlatInspector.install( "ctrl shift alt X" ); //has to be removed
-        
+        FlatUIDefaultsInspector.install( "ctrl shift alt Y" ); //has to be removed
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainInterface().setVisible(true);
