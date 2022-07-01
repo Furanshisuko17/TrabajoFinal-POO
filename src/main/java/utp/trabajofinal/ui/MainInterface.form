@@ -194,6 +194,9 @@
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                         <Property name="placeholderText" type="java.lang.String" value=""/>
                       </Properties>
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.formdev.flatlaf.extras.components.FlatPasswordField()"/>
+                      </AuxValues>
                     </Component>
                     <Component class="javax.swing.JLabel" name="DatabaseLabel">
                       <Properties>
