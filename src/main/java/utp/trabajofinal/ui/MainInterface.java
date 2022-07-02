@@ -3,6 +3,7 @@ package utp.trabajofinal.ui;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.extras.FlatInspector; // has to be removed
 import com.formdev.flatlaf.extras.FlatSVGIcon;
+import com.formdev.flatlaf.extras.FlatSVGIcon.ColorFilter;
 import com.formdev.flatlaf.extras.FlatUIDefaultsInspector; // has to be removed
 import java.awt.Color;
 import java.awt.event.ItemEvent;
@@ -23,6 +24,12 @@ public class MainInterface extends javax.swing.JFrame {
     private boolean isConnectedToDatabase;
     public static ConnectionInfo connectionInfo;
     // <editor-fold defaultstate="collapsed" desc="Icons">
+    FlatSVGIcon exitIcon = new FlatSVGIcon(getClass().getResource("/icons/exit.svg"));
+    FlatSVGIcon databaseIcon = new FlatSVGIcon(getClass().getResource("/icons/database.svg"));
+    FlatSVGIcon usersIcon = new FlatSVGIcon(getClass().getResource("/icons/users.svg"));
+    FlatSVGIcon infoIcon = new FlatSVGIcon(getClass().getResource("/icons/info.svg"));
+    FlatSVGIcon appearanceIcon = new FlatSVGIcon(getClass().getResource("/icons/appearance.svg"));
+    FlatSVGIcon questionIcon = new FlatSVGIcon(getClass().getResource("/icons/question.svg"));
     
     
     
@@ -33,6 +40,7 @@ public class MainInterface extends javax.swing.JFrame {
     public MainInterface() {
         isConnectedToDatabase = false;
         connectionInfo = new ConnectionInfo();
+        
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -66,6 +74,7 @@ public class MainInterface extends javax.swing.JFrame {
         About = new javax.swing.JDialog();
         ThemeButtonGroup = new javax.swing.ButtonGroup();
         ToolBar = new com.formdev.flatlaf.extras.components.FlatToolBar();
+        filler1 = new javax.swing.Box.Filler(new java.awt.Dimension(10, 0), new java.awt.Dimension(10, 0), new java.awt.Dimension(5, 32767));
         openCiudadanoButton = new javax.swing.JButton();
         openEmpresaButton = new javax.swing.JButton();
         MainWindow = new javax.swing.JPanel();
@@ -87,6 +96,7 @@ public class MainInterface extends javax.swing.JFrame {
         AcercaDeMenu = new javax.swing.JMenuItem();
 
         DatabaseConnectionWindow.setTitle("Conexión a la base de datos");
+        DatabaseConnectionWindow.setIconImage(databaseIcon.getImage());
 
         DatabaseConnectionWindowConnectButton.setText("Conectarse");
         DatabaseConnectionWindowConnectButton.addActionListener(new java.awt.event.ActionListener() {
@@ -274,6 +284,7 @@ public class MainInterface extends javax.swing.JFrame {
         DatabaseConnectionWindow.setResizable(false);
 
         About.setTitle("Acerca de");
+        About.setIconImage(questionIcon.getImage());
 
         javax.swing.GroupLayout AboutLayout = new javax.swing.GroupLayout(About.getContentPane());
         About.getContentPane().setLayout(AboutLayout);
@@ -303,13 +314,15 @@ public class MainInterface extends javax.swing.JFrame {
         });
 
         ToolBar.setRollover(true);
+        ToolBar.add(filler1);
 
-        openCiudadanoButton.setIcon(new FlatSVGIcon(getClass().getResource("/icons/exit.svg")));
-        openCiudadanoButton.setText("Ciudadano");
+        openCiudadanoButton.setIcon(usersIcon.derive((float)1.5)
+        );
+        openCiudadanoButton.setToolTipText("Abrir la lista de ciudadanos");
         openCiudadanoButton.setFocusable(false);
-        openCiudadanoButton.setHorizontalAlignment(javax.swing.SwingConstants.LEADING);
-        openCiudadanoButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        openCiudadanoButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        openCiudadanoButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        openCiudadanoButton.setLabel("<html><h3>Ciudadano</h3></html>");
+        openCiudadanoButton.setMaximumSize(new java.awt.Dimension(125, 48));
         openCiudadanoButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openCiudadanoButtonActionPerformed(evt);
@@ -349,7 +362,7 @@ public class MainInterface extends javax.swing.JFrame {
         ArchivoMenu.setToolTipText("");
 
         Salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        Salir.setIcon(new FlatSVGIcon(getClass().getResource("/icons/exit.svg")));
+        Salir.setIcon(exitIcon);
         Salir.setText("Salir");
         Salir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -365,6 +378,7 @@ public class MainInterface extends javax.swing.JFrame {
 
         ConexionMenu.setText("Conexión");
 
+        ConectarseBaseDatos.setIcon(databaseIcon);
         ConectarseBaseDatos.setText("Conectarse a una base de datos");
         ConectarseBaseDatos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -382,6 +396,7 @@ public class MainInterface extends javax.swing.JFrame {
         ConexionMenu.add(DesconectarseBaseDatos);
         ConexionMenu.add(ConexionMenuSeparator);
 
+        ConexionDetails.setIcon(infoIcon);
         ConexionDetails.setText("Detalles de la conexión");
         ConexionDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,7 +409,8 @@ public class MainInterface extends javax.swing.JFrame {
 
         OpcionesMenu.setText("Opciones");
 
-        TemaButton.setText("Tema");
+        TemaButton.setIcon(appearanceIcon);
+        TemaButton.setText("Apariencia");
 
         TemaClaroButton.setText("Claro");
         TemaButton.add(TemaClaroButton);
@@ -415,6 +431,7 @@ public class MainInterface extends javax.swing.JFrame {
 
         AyudaMenu.setText("Ayuda");
 
+        AcercaDeMenu.setIcon(questionIcon);
         AcercaDeMenu.setText("Acerca de");
         AcercaDeMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -437,9 +454,9 @@ public class MainInterface extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ToolBar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(MainWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 338, Short.MAX_VALUE))
+                .addComponent(MainWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE))
         );
 
         pack();
@@ -696,6 +713,7 @@ public class MainInterface extends javax.swing.JFrame {
     private com.formdev.flatlaf.extras.components.FlatToolBar ToolBar;
     private javax.swing.JTextField UsernameInput;
     private javax.swing.JLabel UsernameLabel;
+    private javax.swing.Box.Filler filler1;
     private javax.swing.JDesktopPane mainDesktopPane;
     private javax.swing.JButton openCiudadanoButton;
     private javax.swing.JButton openEmpresaButton;
