@@ -7,24 +7,26 @@ public class Ciudadano {
     private String apellido;
     private int edad;
     private int DNI;
-    private int zona;
+    private int IDzona;
     private int IDcat;
-    private int IDmuni;
+    private int IDempresa;
+    private int IDdesc;
 
-    public Ciudadano() {
-    }
-
-    public Ciudadano(String IDciudadano, String nombre, String apellido, int edad, int DNI, int zona, int IDcat, int IDmuni) {
+    public Ciudadano(String IDciudadano, String nombre, String apellido, int edad, int DNI, int IDzona, int IDcat, int IDempresa, int IDdesc) {
         this.IDciudadano = IDciudadano;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.DNI = DNI;
-        this.zona = zona;
+        this.IDzona = IDzona;
         this.IDcat = IDcat;
-        this.IDmuni = IDmuni;
+        this.IDempresa = IDempresa;
+        this.IDdesc = IDdesc;
     }
-    
+
+    public Ciudadano() {
+    }
+   
     public String getIDciudadano() {
         return IDciudadano;
     }
@@ -65,12 +67,12 @@ public class Ciudadano {
         this.DNI = DNI;
     }
 
-    public int getZona() {
-        return zona;
+    public int getIDzona() {
+        return IDzona;
     }
 
-    public void setZona(int zona) {
-        this.zona = zona;
+    public void setIDzona(int IDzona) {
+        this.IDzona = IDzona;
     }
 
     public int getIDcat() {
@@ -81,12 +83,19 @@ public class Ciudadano {
         this.IDcat = IDcat;
     }
 
-    public int getIDmuni() {
-        return IDmuni;
+    public int getIDempresa() {
+        return IDempresa;
     }
 
-    public void setIDmuni(int IDmuni) {
-        this.IDmuni = IDmuni;
+    public void setIDempresa(int IDempresa) {
+        this.IDempresa = IDempresa;
     }
     
+    public int getIDdesc() {
+        return IDdesc;
+    }
+
+    public void setIDdesc(int IDdesc) {
+        this.IDdesc = IDdesc;
+    }
 }

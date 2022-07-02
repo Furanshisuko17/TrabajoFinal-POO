@@ -31,10 +31,7 @@ public class MainInterface extends javax.swing.JFrame {
     FlatSVGIcon appearanceIcon = new FlatSVGIcon(getClass().getResource("/icons/appearance.svg"));
     FlatSVGIcon questionIcon = new FlatSVGIcon(getClass().getResource("/icons/question.svg"));
     
-    
-    
-    
-    
+   
     //</editor-fold>
 
     public MainInterface() {

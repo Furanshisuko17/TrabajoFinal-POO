@@ -6,12 +6,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import utp.trabajofinal.crudInterfaces.SimpleCrudInterface;
 import utp.trabajofinal.entities.Empresa;
 import utp.trabajofinal.sqlhandler.ConnectionInfo;
 import utp.trabajofinal.sqlhandler.MySQLHandler;
 import utp.trabajofinal.ui.MainInterface;
 import utp.trabajofinal.ui.MessageHandler;
+import utp.trabajofinal.crudInterfaces.SimpleCrudInterface;
 
 
 public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
