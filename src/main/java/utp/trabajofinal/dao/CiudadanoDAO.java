@@ -64,7 +64,9 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
             ps = con.conectar().prepareStatement(queryString);
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
-            String[] textValues = new String[4];
+            List<List<String>> textValues = new ArrayList();
+            
+            
             while(rs.next()){
                 registros.add(new Ciudadano(rs.getString(1), 
                                             rs.getString(2),
@@ -75,11 +77,13 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
                                             rs.getInt(7),
                                             rs.getInt(8), 
                                             rs.getInt(9)));
-                textValues[0] = rs.getString(10);
-                textValues[1] = rs.getString(11);
-                textValues[2] = rs.getString(12);
-                textValues[3] = rs.getString(13);
+                List<String> value = new ArrayList();
                 
+                value.add(rs.getString(10));
+                value.add(rs.getString(11));
+                value.add(rs.getString(12));
+                value.add(rs.getString(13));
+                textValues.add(value);
             }
             
             retorno[0] = registros;
@@ -93,7 +97,6 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
             rs = null;
             con.desconectar();
         }
-        
         return retorno;
     }
 

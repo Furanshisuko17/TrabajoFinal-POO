@@ -18,14 +18,20 @@ public class CiudadanoControl {
     }
     
     public DefaultTableModel listar(String text) {
-        List<Ciudadano> lista = new ArrayList();
+        List<Ciudadano> lista = new ArrayList(); // List contains Ciudadano objects
+        List<List<String>> textColumns = new ArrayList(); //
+        
         Object[] objRetriever = data.listar(text);
+        
         lista.addAll((Collection<? extends Ciudadano>) objRetriever[0]);
-        String[] textColumns = new String[4];
-        textColumns[0] = objRetriever[1][0];
+        textColumns.addAll((Collection<? extends List<String>>) objRetriever[1]);
+          
+        
         String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "zona", "IDcat", "IDmuni", ""};
         this.dtm = new DefaultTableModel(null, columnas);
+        
         String[] register = new String[8];
+        
         for (Ciudadano item : lista){
             register[0] = item.getIDciudadano();
             register[1] = item.getNombre();
@@ -37,6 +43,8 @@ public class CiudadanoControl {
             register[7] = Integer.toString(item.getIDempresa());
             this.dtm.addRow(register);
         }
+        
+        
         return this.dtm;
     }
     
