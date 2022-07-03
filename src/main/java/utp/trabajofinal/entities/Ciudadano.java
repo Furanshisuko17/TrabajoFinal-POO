@@ -98,4 +98,5 @@ public class Ciudadano {
     public void setIDdesc(int IDdesc) {
         this.IDdesc = IDdesc;
     }
+    
 }
