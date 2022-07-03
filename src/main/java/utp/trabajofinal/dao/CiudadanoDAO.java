@@ -102,17 +102,17 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
 
     @Override
     public boolean insertar(Ciudadano obj) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean actualizar(Ciudadano obj) {
-        return true;
+        return false;
     }
 
     @Override
     public boolean eliminar(Ciudadano obj) {
-        return true;
+        return false;
     }
     
 

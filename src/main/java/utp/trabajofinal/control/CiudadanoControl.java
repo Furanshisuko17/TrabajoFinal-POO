@@ -28,7 +28,12 @@ public class CiudadanoControl {
           
         String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "Zona", "Categoría", "Nombre municipal", "Descuento"};
         
-        this.dtm = new DefaultTableModel(null, columnas);
+        this.dtm = new DefaultTableModel(null, columnas){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
         
         String[] register = new String[9];
             int num = 0;
@@ -43,7 +48,7 @@ public class CiudadanoControl {
                         register[5] = textColumns.get(i).get(0);
                         register[6] = textColumns.get(i).get(1);
                         register[7] = textColumns.get(i).get(2);
-                        register[8] = textColumns.get(i).get(3);
+                        register[8] = textColumns.get(i).get(3) + "%";
                     }else if(i < num){
                         continue;
                     }else {
@@ -56,4 +61,26 @@ public class CiudadanoControl {
         return this.dtm;
     }
     
+    public String insertar(Ciudadano obj) {
+        if (data.insertar(obj)) {
+            return "OK";
+        } else {
+            return "Error en la inserción.";
+        }
+    }
+
+    public String actualizar(Ciudadano obj) {
+        if (data.actualizar(obj)) {
+            return "OK";
+        } else {
+            return "Error en la actualización.";
+        }
+    }
+    public String eliminar(Ciudadano obj) {
+        if (data.eliminar(obj)) {
+            return "OK";
+        } else {
+            return "Error en la eliminación.";
+        }
+    }
 }

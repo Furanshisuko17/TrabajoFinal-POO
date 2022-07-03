@@ -304,6 +304,7 @@ public class MainInterface extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Gestión de arbitrios");
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setName("MainFrame"); // NOI18N
         addWindowListener(new java.awt.event.WindowAdapter() {
             public void windowOpened(java.awt.event.WindowEvent evt) {
                 formWindowOpened(evt);
@@ -524,7 +525,7 @@ public class MainInterface extends javax.swing.JFrame {
         try {
             port = Integer.parseInt(PortInput.getText());
         }catch (NumberFormatException e){
-            MessageHandler.exceptionMessage("El valor introducidoe en el puerto no es un número!");
+            MessageHandler.exceptionMessage("El valor introducido en el puerto no es un número!");
             
             PortInput.putClientProperty("JComponent.outline", "error");
             return; //
@@ -604,6 +605,7 @@ public class MainInterface extends javax.swing.JFrame {
                     @Override
                     public void internalFrameDeactivated(InternalFrameEvent e) {}
                 });
+                muni.setFrameIcon(usersIcon);
                 mainDesktopPane.add(muni);
                 muni.setVisible(true);
                 openCiudadanoButton.setEnabled(false);
@@ -650,23 +652,19 @@ public class MainInterface extends javax.swing.JFrame {
     }
     
     public static void main(String args[]) {
-        //FlatDarkLaf look and feel    
-        
-        com.formdev.flatlaf.FlatDarkLaf.setup();
-
+        com.formdev.flatlaf.FlatDarkLaf.setup();//FlatDarkLaf look and feel    
         FlatSVGIcon.ColorFilter.getInstance().add( Color.black, new Color(90, 90, 90), new Color(175, 177, 179));
+        
         FlatInspector.install( "ctrl shift alt X" ); //has to be removed
         FlatUIDefaultsInspector.install( "ctrl shift alt Y" ); //has to be removed
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new MainInterface().setVisible(true);
-
             }
         });
-        
         defineUI();
     }
-    
     //<editor-fold defaultstate="collapsed" desc="Generated Variables">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDialog About;

@@ -30,7 +30,7 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
     @Override
     public List<Empresa> listar(String text) {
         List<Empresa> registros = new ArrayList();
-        try{
+        try {
             ps = con.conectar().prepareStatement("SELECT * FROM empresa WHERE municipalNombre LIKE ?;");
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
@@ -42,9 +42,9 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
             
             ps.close();
             rs.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             MessageHandler.exceptionMessage(e);
-        }finally {
+        } finally {
             ps = null;
             rs = null;
             con.desconectar(); 
@@ -55,7 +55,7 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
     @Override
     public boolean insertar(Empresa obj) {
         boolean conf = false;
-        try{
+        try {
             ps = con.conectar().prepareStatement("INSERT INTO empresa (municipalNombre, lugar) VALUES (?, ?)");
             ps.setString(1, obj.getMunicipalNombre());
             ps.setString(2, obj.getLugar());
@@ -63,9 +63,9 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
                 conf = true;
             }
             ps.close();
-        }catch (SQLException e){
+        } catch (SQLException e) {
             MessageHandler.exceptionMessage(e);
-        }finally {
+        } finally {
             ps = null;
             con.desconectar();
         }
@@ -103,8 +103,7 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
             if(ps.executeUpdate() > 0){
                 conf = true;
             }
-            
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             MessageHandler.exceptionMessage(e);
         } finally {
             ps = null;

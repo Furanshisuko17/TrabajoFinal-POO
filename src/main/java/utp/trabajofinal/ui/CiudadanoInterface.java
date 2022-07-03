@@ -31,10 +31,12 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
         tablaMunicipalidad = new javax.swing.JTable();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Ciudadano");
         setToolTipText("");
         setFrameIcon(null);
 
+        tablaMunicipalidad.setAutoCreateRowSorter(true);
         tablaMunicipalidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -44,6 +46,8 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
             }
         ));
         tablaMunicipalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaMunicipalidad.setRowSelectionAllowed(true);
+        tablaMunicipalidad.getTableHeader().setReorderingAllowed(false);
         municipalidadScrollPane.setViewportView(tablaMunicipalidad);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -58,8 +62,8 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
-                .addComponent(municipalidadScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
+                .addComponent(municipalidadScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

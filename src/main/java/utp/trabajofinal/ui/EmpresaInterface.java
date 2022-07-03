@@ -34,6 +34,7 @@ public class EmpresaInterface extends javax.swing.JInternalFrame {
         TextField = new javax.swing.JTextField();
 
         setClosable(true);
+        setMaximizable(true);
         setTitle("Empresa");
 
         contentTable.setModel(new javax.swing.table.DefaultTableModel(
