@@ -19,32 +19,40 @@ public class CiudadanoControl {
     
     public DefaultTableModel listar(String text) {
         List<Ciudadano> lista = new ArrayList(); // List contains Ciudadano objects
-        List<List<String>> textColumns = new ArrayList(); //
+        List<List<String>> textColumns = new ArrayList(); //List contains list of textData
         
         Object[] objRetriever = data.listar(text);
         
         lista.addAll((Collection<? extends Ciudadano>) objRetriever[0]);
         textColumns.addAll((Collection<? extends List<String>>) objRetriever[1]);
           
+        String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "Zona", "Categoría", "Nombre municipal", "Descuento"};
         
-        String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "zona", "IDcat", "IDmuni", ""};
         this.dtm = new DefaultTableModel(null, columnas);
         
-        String[] register = new String[8];
-        
-        for (Ciudadano item : lista){
-            register[0] = item.getIDciudadano();
-            register[1] = item.getNombre();
-            register[2] = item.getApellido();
-            register[3] = Integer.toString(item.getEdad());
-            register[4] = Integer.toString(item.getDNI());
-            register[5] = Integer.toString(item.getIDzona());
-            register[6] = Integer.toString(item.getIDcat());
-            register[7] = Integer.toString(item.getIDempresa());
-            this.dtm.addRow(register);
-        }
-        
-        
+        String[] register = new String[9];
+            int num = 0;
+            for (Ciudadano item: lista){
+                register[0] = item.getIDciudadano();
+                register[1] = item.getNombre();
+                register[2] = item.getApellido();
+                register[3] = Integer.toString(item.getEdad());
+                register[4] = Integer.toString(item.getDNI());
+                for (int i = 0; i < textColumns.size(); i++) {
+                    if(i == num){
+                        register[5] = textColumns.get(i).get(0);
+                        register[6] = textColumns.get(i).get(1);
+                        register[7] = textColumns.get(i).get(2);
+                        register[8] = textColumns.get(i).get(3);
+                    }else if(i < num){
+                        continue;
+                    }else {
+                        break;
+                    }
+                }
+                this.dtm.addRow(register);
+                num++;
+            }      
         return this.dtm;
     }
     
