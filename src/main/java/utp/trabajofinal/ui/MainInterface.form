@@ -79,6 +79,9 @@
               </Properties>
             </Component>
             <Component class="com.formdev.flatlaf.extras.components.FlatSeparator" name="Separator">
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.formdev.flatlaf.extras.components.FlatSeparator()"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>

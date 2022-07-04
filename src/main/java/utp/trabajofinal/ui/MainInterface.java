@@ -554,10 +554,8 @@ public class MainInterface extends javax.swing.JFrame {
             PortInput.setEditable(false);
             PortInput.putClientProperty("JComponent.outline", "");
             isConnectedToDatabase = true;
-        }else {
-            MessageHandler.exceptionMessage(null, MessageHandler.EXCEPTION_TITLE, "No se pudo conectar.");
+            sqlconnector.desconectar();
         }
-        sqlconnector.desconectar();
     }//GEN-LAST:event_DatabaseConnectionWindowConnectButtonActionPerformed
 
     //Prompt database login at program start 
