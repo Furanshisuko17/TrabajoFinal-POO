@@ -36,8 +36,8 @@ public class MySQLHandler {
         }catch (ClassNotFoundException e){
             MessageHandler.exceptionMessage(e, MessageHandler.EXCEPTION_TITLE,"Driver no encontrado!");
         }catch (SQLException e){
-            clearInstance();
             MessageHandler.exceptionMessage(e, "Error al conectar!");
+            clearInstance();
         }
         return this.cnx;
     }

@@ -3,7 +3,6 @@ package utp.trabajofinal.ui;
 import com.formdev.flatlaf.extras.FlatAnimatedLafChange;
 import com.formdev.flatlaf.extras.FlatInspector; // has to be removed
 import com.formdev.flatlaf.extras.FlatSVGIcon;
-import com.formdev.flatlaf.extras.FlatSVGIcon.ColorFilter;
 import com.formdev.flatlaf.extras.FlatUIDefaultsInspector; // has to be removed
 import java.awt.Color;
 import java.awt.event.ItemEvent;
@@ -30,6 +29,7 @@ public class MainInterface extends javax.swing.JFrame {
     FlatSVGIcon infoIcon = new FlatSVGIcon(getClass().getResource("/icons/info.svg"));
     FlatSVGIcon appearanceIcon = new FlatSVGIcon(getClass().getResource("/icons/appearance.svg"));
     FlatSVGIcon questionIcon = new FlatSVGIcon(getClass().getResource("/icons/question.svg"));
+    FlatSVGIcon officeIcon = new FlatSVGIcon(getClass().getResource("/icons/office.svg"));
     
    
     //</editor-fold>
@@ -37,7 +37,6 @@ public class MainInterface extends javax.swing.JFrame {
     public MainInterface() {
         isConnectedToDatabase = false;
         connectionInfo = new ConnectionInfo();
-        
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
     }
@@ -328,10 +327,11 @@ public class MainInterface extends javax.swing.JFrame {
         });
         ToolBar.add(openCiudadanoButton);
 
-        openEmpresaButton.setText("Empresa");
+        openEmpresaButton.setIcon(officeIcon.derive((float)1.5));
+        openEmpresaButton.setText("<html><h3>Empresa</h3></html>");
         openEmpresaButton.setFocusable(false);
-        openEmpresaButton.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        openEmpresaButton.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        openEmpresaButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        openEmpresaButton.setMaximumSize(new java.awt.Dimension(125, 48));
         openEmpresaButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 openEmpresaButtonActionPerformed(evt);
@@ -569,6 +569,7 @@ public class MainInterface extends javax.swing.JFrame {
             MessageHandler.informationMessage(
                     sqlconnector.toString(), 
                     "Detalles de la conexión");
+            sqlconnector.desconectar();
         }else{
             MessageHandler.informationMessage(
                     "No estas conectado a una base de datos.", 
@@ -636,6 +637,7 @@ public class MainInterface extends javax.swing.JFrame {
                     @Override
                     public void internalFrameDeactivated(InternalFrameEvent e) {}
                 });
+                emp.setFrameIcon(officeIcon);
                 mainDesktopPane.add(emp);
                 emp.setVisible(true);
                 openEmpresaButton.setEnabled(false);            
