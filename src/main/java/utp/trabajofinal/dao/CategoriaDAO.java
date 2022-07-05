@@ -1,4 +1,3 @@
-
 package utp.trabajofinal.dao;
 
 import java.sql.PreparedStatement;
@@ -6,43 +5,44 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import utp.trabajofinal.entities.Empresa;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import utp.trabajofinal.crudInterfaces.SimpleCrudInterface;
+import utp.trabajofinal.entities.Categoria;
 import utp.trabajofinal.sqlhandler.ConnectionInfo;
 import utp.trabajofinal.sqlhandler.MySQLHandler;
 import utp.trabajofinal.ui.MainInterface;
 import utp.trabajofinal.ui.MessageHandler;
-import utp.trabajofinal.crudInterfaces.SimpleCrudInterface;
 
-
-public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
+public class CategoriaDAO implements SimpleCrudInterface<Categoria>{
     
     private final ConnectionInfo connectionInfo;
     private final MySQLHandler con;
     private PreparedStatement ps;
     private ResultSet rs;
     
-    public EmpresaDAO(){
+    public CategoriaDAO() {
         this.connectionInfo = MainInterface.connectionInfo;
         this.con = MySQLHandler.getInstance(connectionInfo.getIP(), connectionInfo.getPort(), 
                 connectionInfo.getDatabase(), connectionInfo.getUser(), connectionInfo.getPassword());
     }
 
     @Override
-    public List<Empresa> listar(String text) {
-        List<Empresa> registros = new ArrayList();
-        try {
-            ps = con.conectar().prepareStatement("SELECT * FROM empresa WHERE municipalNombre LIKE ?;");
+    public List<Categoria> listar(String text) {
+        List<Categoria> registros = new ArrayList();
+        try {            
+            ps = con.conectar().prepareStatement("SELECT * FROM categoria WHERE IDcat LIKE ?;");
             ps.setString(1, "%" + text + "%");
             rs = ps.executeQuery();
             while(rs.next()){
-                registros.add(new Empresa(rs.getInt(1),
+                registros.add(new Categoria(rs.getInt(1),
                                           rs.getString(2),
-                                          rs.getString(3)));
+                                          rs.getInt(3),
+                                          rs.getString(4)));
             }
-            
             ps.close();
             rs.close();
-        } catch (SQLException e) {
+        } catch (SQLException ex) {
             MessageHandler.exceptionMessage(e);
         } finally {
             ps = null;
@@ -53,12 +53,13 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
     }
 
     @Override
-    public boolean insertar(Empresa obj) {
+    public boolean insertar(Categoria obj) {
         boolean conf = false;
         try {
-            ps = con.conectar().prepareStatement("INSERT INTO empresa (municipalNombre, lugar) VALUES (?, ?)");
-            ps.setString(1, obj.getMunicipalNombre());
-            ps.setString(2, obj.getLugar());
+            ps = con.conectar().prepareStatement("INSERT INTO categoria (tipo, couta, ingresosMax) VALUES (?, ?, ?)");
+            ps.setString(1, obj.getTipo());
+            ps.setInt(2, obj.getCuota());
+            ps.setString(3, obj.getIngresosMax());
             if(ps.executeUpdate() > 0){
                 conf = true;
             }
@@ -73,13 +74,14 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
     }
 
     @Override
-    public boolean actualizar(Empresa obj) {
+    public boolean actualizar(Categoria obj) {
         boolean conf = false;
         try{
-            ps = con.conectar().prepareStatement("UPDATE empresa SET municipalNombre = ?, lugar = ? WHERE IDempresa = ?");
-            ps.setString(1, obj.getMunicipalNombre());
-            ps.setString(2, obj.getLugar());
-            ps.setInt(3, obj.getIDempresa());
+            ps = con.conectar().prepareStatement("UPDATE categoria SET tipo = ?, couta = ?, ingresosMax = ? WHERE IDcat = ?");
+            ps.setString(1, obj.getTipo());
+            ps.setInt(2, obj.getCuota());
+            ps.setString(3, obj.getIngresosMax());
+            ps.setInt(4, obj.getIDcat());
             if (ps.executeUpdate() > 0) {
                 conf = true;
             }
@@ -93,13 +95,13 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
         
         return conf;
     }
-
+    
     @Override
-    public boolean eliminar(Empresa obj) {
+    public boolean eliminar(Categoria obj) {
         boolean conf = false;
         try {
-            ps = con.conectar().prepareStatement("DELETE FROM empresa WHERE IDempresa = ?");
-            ps.setInt(1, obj.getIDempresa());
+            ps = con.conectar().prepareStatement("DELETE FROM categoria WHERE IDcat = ?");
+            ps.setInt(1, obj.getIDcat());
             if(ps.executeUpdate() > 0){
                 conf = true;
             }
@@ -111,4 +113,7 @@ public class EmpresaDAO implements SimpleCrudInterface<Empresa>{
         }
         return conf;
     }
+    
+    
+    
 }
