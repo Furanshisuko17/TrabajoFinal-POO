@@ -33,6 +33,7 @@ public class CategoriaInterface extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
+        setTitle("Categoría");
 
         contentTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

@@ -72,6 +72,7 @@ public class MessageHandler {
         }
         
     }
+    
     public static void informationMessage(String message){
         informationMessage(message, "Información!");
     }
@@ -113,7 +114,6 @@ public class MessageHandler {
                 QUESTION_OPTIONS[0]); 
     }
    
-    
     private static int mainHandler(Object message, String title, int optionType, 
                                    int messageType, Object[] options, Object selectedOption){
         return JOptionPane.showOptionDialog(
@@ -125,7 +125,6 @@ public class MessageHandler {
             null, //Icon
             options, //Buttons label
             selectedOption); //Preselected button
-        
     }
 
 }

@@ -536,7 +536,6 @@ public class MainInterface extends javax.swing.JFrame {
                 connectionInfo.clearData();
                 MySQLHandler.clearInstance();
                 sqlconnector = null;
-                
             }else {
                 return;
             }
@@ -735,7 +734,6 @@ public class MainInterface extends javax.swing.JFrame {
             MessageHandler.exceptionMessage("No estas conectado a una base de datos.");
         }
     }//GEN-LAST:event_openCategoriaButtonActionPerformed
-
     public static void defineUI(){
         UIManager.put("PasswordField.showRevealButton", true );
         UIManager.put("PasswordField.showCapsLock", true);
