@@ -43,7 +43,7 @@ public class CategoriaDAO implements SimpleCrudInterface<Categoria>{
             ps.close();
             rs.close();
         } catch (SQLException ex) {
-            MessageHandler.exceptionMessage(e);
+            MessageHandler.exceptionMessage(ex);
         } finally {
             ps = null;
             rs = null;

@@ -10,8 +10,9 @@ public class CategoriaControl {
     private DefaultTableModel dtm;
 
     public CategoriaControl() {
-        this.data new CategoriaDAO();
-        this.obj = new Categoria;
+        this.data = new CategoriaDAO();
+        this.obj = new Categoria();
+        
     }
 
     
