@@ -29,6 +29,7 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
 
         municipalidadScrollPane = new javax.swing.JScrollPane();
         tablaMunicipalidad = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setClosable(true);
         setMaximizable(true);
@@ -46,23 +47,30 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
             }
         ));
         tablaMunicipalidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        tablaMunicipalidad.setRowSelectionAllowed(true);
         tablaMunicipalidad.getTableHeader().setReorderingAllowed(false);
         municipalidadScrollPane.setViewportView(tablaMunicipalidad);
+
+        jLabel1.setText("Work in progress...");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(municipalidadScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(municipalidadScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 767, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(43, 43, 43)
+                .addGap(9, 9, 9)
+                .addComponent(jLabel1)
+                .addGap(18, 18, 18)
                 .addComponent(municipalidadScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 299, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -72,6 +80,7 @@ public class CiudadanoInterface extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane municipalidadScrollPane;
     private javax.swing.JTable tablaMunicipalidad;
     // End of variables declaration//GEN-END:variables

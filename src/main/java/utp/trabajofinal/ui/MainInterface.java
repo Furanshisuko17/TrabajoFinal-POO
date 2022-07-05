@@ -31,6 +31,7 @@ public class MainInterface extends javax.swing.JFrame {
     FlatSVGIcon questionIcon = new FlatSVGIcon(getClass().getResource("/icons/question.svg"));
     FlatSVGIcon officeIcon = new FlatSVGIcon(getClass().getResource("/icons/office.svg"));
     FlatSVGIcon empleadoIcon = new FlatSVGIcon(getClass().getResource("/icons/empleado.svg"));
+    FlatSVGIcon categoriaIcon = new FlatSVGIcon(getClass().getResource("/icons/categoria.svg"));
   
     //</editor-fold>
 
@@ -74,6 +75,7 @@ public class MainInterface extends javax.swing.JFrame {
         openCiudadanoButton = new javax.swing.JButton();
         openEmpresaButton = new javax.swing.JButton();
         openEmpleadoButton = new javax.swing.JButton();
+        openCategoriaButton = new javax.swing.JButton();
         MainWindow = new javax.swing.JPanel();
         mainDesktopPane = new javax.swing.JDesktopPane();
         MenuBar = new javax.swing.JMenuBar();
@@ -351,6 +353,19 @@ public class MainInterface extends javax.swing.JFrame {
             }
         });
         ToolBar.add(openEmpleadoButton);
+
+        openCategoriaButton.setIcon(categoriaIcon.derive((float) 1.5));
+        openCategoriaButton.setText("<html><h3>Categoría</h3></html>");
+        openCategoriaButton.setToolTipText("");
+        openCategoriaButton.setFocusable(false);
+        openCategoriaButton.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        openCategoriaButton.setMaximumSize(new java.awt.Dimension(125, 48));
+        openCategoriaButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                openCategoriaButtonActionPerformed(evt);
+            }
+        });
+        ToolBar.add(openCategoriaButton);
 
         MainWindow.setLayout(new java.awt.BorderLayout());
 
@@ -665,7 +680,7 @@ public class MainInterface extends javax.swing.JFrame {
                 emp.addInternalFrameListener(new InternalFrameListener() {
                     @Override
                     public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
-                        openCiudadanoButton.setEnabled(true);
+                        openEmpleadoButton.setEnabled(true);
                     }
                     @Override
                     public void internalFrameOpened(InternalFrameEvent e) {}
@@ -683,12 +698,43 @@ public class MainInterface extends javax.swing.JFrame {
                 emp.setFrameIcon(empleadoIcon);
                 mainDesktopPane.add(emp);
                 emp.setVisible(true);
-                openCiudadanoButton.setEnabled(false);
+                openEmpleadoButton.setEnabled(false);
                 
         }else {
             MessageHandler.exceptionMessage("No estas conectado a una base de datos.");
         }
     }//GEN-LAST:event_openEmpleadoButtonActionPerformed
+
+    private void openCategoriaButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openCategoriaButtonActionPerformed
+        if(isConnectedToDatabase){
+                CategoriaInterface cat = new CategoriaInterface();
+                cat.addInternalFrameListener(new InternalFrameListener() {
+                    @Override
+                    public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+                        openCategoriaButton.setEnabled(true);
+                    }
+                    @Override
+                    public void internalFrameOpened(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameClosed(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameIconified(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameDeiconified(InternalFrameEvent e) {}
+                    @Override
+                    public void internalFrameActivated(InternalFrameEvent e) {}                        
+                    @Override
+                    public void internalFrameDeactivated(InternalFrameEvent e) {}
+                });
+                cat.setFrameIcon(categoriaIcon);
+                mainDesktopPane.add(cat);
+                cat.setVisible(true);
+                openCategoriaButton.setEnabled(false);
+                
+        }else {
+            MessageHandler.exceptionMessage("No estas conectado a una base de datos.");
+        }
+    }//GEN-LAST:event_openCategoriaButtonActionPerformed
 
     public static void defineUI(){
         UIManager.put("PasswordField.showRevealButton", true );
@@ -754,6 +800,7 @@ public class MainInterface extends javax.swing.JFrame {
     private javax.swing.JLabel UsernameLabel;
     private javax.swing.Box.Filler filler1;
     private javax.swing.JDesktopPane mainDesktopPane;
+    private javax.swing.JButton openCategoriaButton;
     private javax.swing.JButton openCiudadanoButton;
     private javax.swing.JButton openEmpleadoButton;
     private javax.swing.JButton openEmpresaButton;
