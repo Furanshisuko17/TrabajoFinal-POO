@@ -14,6 +14,10 @@ public class Categoria {
         this.ingresosMax = ingresosMax;
     }
 
+    public Categoria() {
+        
+    }
+
     public int getIDcat() {
         return IDcat;
     }
