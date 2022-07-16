@@ -8,18 +8,16 @@ public class Ciudadano {
     private int edad;
     private int DNI;
     private int IDzona;
-    private int IDcat;
     private int IDempresa;
     private int IDdesc;
 
-    public Ciudadano(String IDciudadano, String nombre, String apellido, int edad, int DNI, int IDzona, int IDcat, int IDempresa, int IDdesc) {
+    public Ciudadano(String IDciudadano, String nombre, String apellido, int edad, int DNI, int IDzona, int IDempresa, int IDdesc) {
         this.IDciudadano = IDciudadano;
         this.nombre = nombre;
         this.apellido = apellido;
         this.edad = edad;
         this.DNI = DNI;
         this.IDzona = IDzona;
-        this.IDcat = IDcat;
         this.IDempresa = IDempresa;
         this.IDdesc = IDdesc;
     }
@@ -73,14 +71,6 @@ public class Ciudadano {
 
     public void setIDzona(int IDzona) {
         this.IDzona = IDzona;
-    }
-
-    public int getIDcat() {
-        return IDcat;
-    }
-
-    public void setIDcat(int IDcat) {
-        this.IDcat = IDcat;
     }
 
     public int getIDempresa() {

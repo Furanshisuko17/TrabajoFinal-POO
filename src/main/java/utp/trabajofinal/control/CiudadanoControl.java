@@ -26,7 +26,7 @@ public class CiudadanoControl {
         lista.addAll((Collection<? extends Ciudadano>) objRetriever[0]);
         textColumns.addAll((Collection<? extends List<String>>) objRetriever[1]);
           
-        String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "Zona", "Categoría", "Nombre municipal", "Descuento"};
+        String[] columnas = {"ID", "Nombre", "Apellido", "Edad", "DNI", "Zona", "Nombre municipal", "Descuento"};
         
         this.dtm = new DefaultTableModel(null, columnas){
             @Override
@@ -47,8 +47,7 @@ public class CiudadanoControl {
                     if(i == num){
                         register[5] = textColumns.get(i).get(0);
                         register[6] = textColumns.get(i).get(1);
-                        register[7] = textColumns.get(i).get(2);
-                        register[8] = textColumns.get(i).get(3) + "%";
+                        register[7] = textColumns.get(i).get(2) + "%";
                     }else if(i < num){
                         continue;
                     }else {

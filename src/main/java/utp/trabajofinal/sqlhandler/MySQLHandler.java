@@ -28,7 +28,6 @@ public class MySQLHandler {
         this.cnx = null;
     }
 
-      
     public Connection conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -51,10 +50,7 @@ public class MySQLHandler {
     }
     
     public static boolean isConnected(){
-        if(selfinstance == null) {
-            return false;
-        }
-        return true;
+        return selfinstance != null;
     }
     
     //"Constructor"

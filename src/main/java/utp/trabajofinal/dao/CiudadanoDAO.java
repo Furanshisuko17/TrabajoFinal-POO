@@ -39,17 +39,13 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
                    "      edad,  " +
                    "      DNI,  " +
                    "      ciudadano.IDzona, " +
-                   "      ciudadano.IDcat, " +
                    "      ciudadano.IDempresa, " +
                    "      ciudadano.IDdesc, " +
                    "      zonas.nombreZona, " +
-                   "      categoria.tipo,  " +
                    "      empresa.municipalNombre,  " +
                    "      descuentos.porcentajeDescuento " +
                    "  FROM  " +
                    "  	  ciudadano " +
-                   "  		INNER JOIN  " +
-                   "  	  categoria ON categoria.IDcat = ciudadano.IDcat " +
                    "  		INNER JOIN  " +
                    "  	  empresa ON empresa.IDempresa = ciudadano.IDempresa " +
                    "  		INNER JOIN  " +
@@ -74,15 +70,13 @@ public class CiudadanoDAO implements ComplexCrudInterface<Ciudadano> {
                                             rs.getInt(4),
                                             rs.getInt(5),
                                             rs.getInt(6),
-                                            rs.getInt(7),
-                                            rs.getInt(8), 
-                                            rs.getInt(9)));
+                                            rs.getInt(7), 
+                                            rs.getInt(8)));
                 List<String> value = new ArrayList();
                 
+                value.add(rs.getString(9));
                 value.add(rs.getString(10));
                 value.add(rs.getString(11));
-                value.add(rs.getString(12));
-                value.add(rs.getString(13));
                 textValues.add(value);
             }
             
